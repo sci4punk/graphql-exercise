@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { Friends } from './dbConnectors';
+import { Friends, Aliens } from './dbConnectors';
 import { rejects } from 'assert';
 
 // resolver map
@@ -8,6 +8,9 @@ export const resolvers = {
     getFriend: ({ id }) => {
       return new Friend(id, friendDatabase[id]);
     },
+    getAliens: () => {
+      return Aliens.findAll();
+    }
   },
   Mutation: {
     createFriend: (root, { input }) => {
