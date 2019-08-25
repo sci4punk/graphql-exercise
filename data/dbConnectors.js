@@ -6,7 +6,7 @@ import casual from 'casual';
 //Mongo connection
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/friends', {
-  userMongoClient: true
+  useMongoClient: true
 });
 
 const friendSchema = new mongoose.Schema ({
@@ -47,15 +47,15 @@ const Aliens = sequelize.define('aliens', {
   planet: { type: Sequelize.STRING },
 });
 
-Aliens.sync({ force: true }).then(() => {
-  _.times(10, (i) => {
-    Aliens.create({
-      firstName: casual._first_name,
-      lastName: casual._last_name,
-      planet: casual.word,
-    });
-  });
-});
+// Aliens.sync({ force: true }).then(() => {
+//   _.times(10, (i) => {
+//     Aliens.create({
+//       firstName: casual._first_name,
+//       lastName: casual._last_name,
+//       planet: casual.word,
+//     });
+//   });
+// });
   
 
 export { Friends, Aliens };
